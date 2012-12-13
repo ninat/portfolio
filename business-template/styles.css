@@ -443,10 +443,10 @@ background-repeat: no-repeat;
 #submit-button{
 	background: -moz-linear-gradient(bottom, #e5e5e5, #fefefe);
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#00BBD6), to(#EBFFFF));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
+    /*d:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');*/
     padding: 1px 15px;
     color: #6c6c6c;
-    font: bold 12px "Myriad Pro",Arial, sans-serif;
+    font: bold 12px 'Myriad Pro', Arial, sans-serif;
       /* -moz-border-radius: 5px;
     -webkit-border-radius: 5px;*/
     border-radius: 5px;
