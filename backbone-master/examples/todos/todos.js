@@ -1,5 +1,5 @@
 //1. check all attr
-/*$(function(){
+$(function(){
   var funcSetAttr = Element.prototype.setAttribute;
   Element.prototype.setAttribute = function(name, value) {
       if (name == 'clone') {
@@ -7,7 +7,7 @@
       }
       funcSetAttr.call(this,name,value); 
   };
-})*/
+})
 
 $(function(){
 
@@ -89,8 +89,7 @@ $(function(){
 
     // Re-render the titles of the todo item.
     render: function() {
-      this.el.html(this.template(this.model.toJSON()));
-     /* this.$el.html(this.template(this.model.toJSON()));*/
+      this.$el.html(this.template(this.model.toJSON()));
       this.$el.toggleClass('done', this.model.get('done'));
       this.input = this.$('.edit');
       return this;
