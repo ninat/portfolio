@@ -89,25 +89,22 @@ $(function(){
 
     // Re-render the titles of the todo item.
     render: function() {
-      this.$el.html(this.template(this.model.toJSON()));
+      this.el.html(this.template(this.model.toJSON()));
      /* this.$el.html(this.template(this.model.toJSON()));*/
       this.$el.toggleClass('done', this.model.get('done'));
       this.input = this.$('.edit');
       return this;
     },
 
-    // Toggle the `"done"` state of the model.
     toggleDone: function() {
       this.model.toggle();
     },
 
-    // Switch this view into `"editing"` mode, displaying the input field.
     edit: function() {
       this.$el.addClass("editing");
       this.input.focus();
     },
 
-    // Close the `"editing"` mode, saving changes to the todo.
     close: function() {
       var value = this.input.val();
       if (!value) {
@@ -118,41 +115,27 @@ $(function(){
       }
     },
 
-    // If you hit `enter`, we're through editing the item.
     updateOnEnter: function(e) {
       if (e.keyCode == 13) this.close();
     },
 
-    // Remove the item, destroy the model.
     clear: function() {
       this.model.destroy();
     }
 
   });
 
-  // The Application
-  // ---------------
 
-  // Our overall **AppView** is the top-level piece of UI.
   var AppView = Backbone.View.extend({
-
-    // Instead of generating a new element, bind to the existing skeleton of
-    // the App already present in the HTML.
     el: $("#todoapp"),
-
-    // Our template for the line of statistics at the bottom of the app.
     statsTemplate: _.template($('#stats-template').html()),
 
-    // Delegated events for creating new items, and clearing completed ones.
     events: {
       "keypress #new-todo":  "createOnEnter",
       "click #clear-completed": "clearCompleted",
       "click #toggle-all": "toggleAllComplete"
     },
 
-    // At initialization we bind to the relevant events on the `Todos`
-    // collection, when items are added or changed. Kick things off by
-    // loading any preexisting todos that might be saved in *localStorage*.
     initialize: function() {
 
       this.input = this.$("#new-todo");
